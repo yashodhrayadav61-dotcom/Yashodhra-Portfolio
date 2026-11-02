@@ -28,9 +28,10 @@ export default function Projects() {
   }, [])
 
   const handleRowClick = (project) => {
-    if (!project.link) return
+    const targetUrl = project.liveUrl || project.link || project.githubUrl
+    if (!targetUrl) return
 
-    // On touch devices without hover, first tap reveals "VIEW PROJECT ↗"
+    // On touch devices without hover, first tap reveals action buttons
     const isTouch = typeof window !== 'undefined' && window.matchMedia('(hover: none) and (pointer: coarse)').matches
     if (isTouch) {
       if (activeRowId !== project.id) {
@@ -40,7 +41,7 @@ export default function Projects() {
     }
 
     // Direct open on desktop click or second tap on mobile
-    window.open(project.link, '_blank', 'noopener,noreferrer')
+    window.open(targetUrl, '_blank', 'noopener,noreferrer')
   }
 
   return (
@@ -64,7 +65,8 @@ export default function Projects() {
         {/* Project List */}
         <div className="projects__list" role="list">
           {projects.map((project, index) => {
-            const hasLink = Boolean(project.link)
+            const hasLink = Boolean(project.link || project.liveUrl || project.githubUrl)
+            const primaryUrl = project.liveUrl || project.link || project.githubUrl
             const isActive = activeRowId === project.id
 
             return (
@@ -81,11 +83,11 @@ export default function Projects() {
                 onKeyDown={(e) => {
                   if (hasLink && (e.key === 'Enter' || e.key === ' ')) {
                     e.preventDefault()
-                    window.open(project.link, '_blank', 'noopener,noreferrer')
+                    window.open(primaryUrl, '_blank', 'noopener,noreferrer')
                   }
                 }}
                 aria-label={`${project.title} — ${project.subtitle}${
-                  hasLink ? ' (Click or tap to view project repository)' : ''
+                  hasLink ? ' (Click or tap to view project destination)' : ''
                 }`}
               >
                 {/* Index */}
@@ -111,6 +113,33 @@ export default function Projects() {
                     {project.description}
                   </p>
 
+                  {/* Optional Actual Screenshot Thumbnail */}
+                  {project.image && (
+                    <div className="project-entry__preview">
+                      <img
+                        src={project.image}
+                        alt={`${project.title} live interface preview`}
+                        className="project-entry__preview-img"
+                        loading="lazy"
+                      />
+                    </div>
+                  )}
+
+                  {/* Key Highlights / Features */}
+                  {project.features && project.features.length > 0 && (
+                    <div className="project-entry__features">
+                      <span className="project-entry__features-label caption text-muted">Key Highlights</span>
+                      <ul className="project-entry__features-list">
+                        {project.features.map((feature) => (
+                          <li key={feature} className="project-entry__feature-item body-sm">
+                            <span className="project-entry__feature-bullet" aria-hidden="true">✦</span>
+                            <span>{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
                   {project.technologies && project.technologies.length > 0 && (
                     <ul className="project-entry__tech" aria-label="Technologies used">
                       {project.technologies.map((tech) => (
@@ -122,7 +151,7 @@ export default function Projects() {
                   )}
                 </div>
 
-                {/* Right Side: Status, Year & Contextual VIEW PROJECT ↗ Button */}
+                {/* Right Side: Status, Year & Contextual Action Buttons */}
                 <div className="project-entry__action">
                   <div className="project-entry__meta-info">
                     <span
@@ -139,19 +168,44 @@ export default function Projects() {
 
                   {hasLink ? (
                     <div className="project-entry__cta-wrap">
-                      <a
-                        href={project.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="project-entry__btn caption"
-                        onClick={(e) => {
-                          e.stopPropagation()
-                        }}
-                        aria-label={`View ${project.title} project repository in new tab`}
-                      >
-                        <span className="project-entry__btn-text">VIEW PROJECT</span>
-                        <span className="project-entry__btn-arrow" aria-hidden="true">↗</span>
-                      </a>
+                      {project.liveUrl && project.githubUrl ? (
+                        <>
+                          <a
+                            href={project.liveUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="project-entry__btn caption"
+                            onClick={(e) => e.stopPropagation()}
+                            aria-label={`View live website for ${project.title}`}
+                          >
+                            <span className="project-entry__btn-text">LIVE DEMO</span>
+                            <span className="project-entry__btn-arrow" aria-hidden="true">↗</span>
+                          </a>
+                          <a
+                            href={project.githubUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="project-entry__btn project-entry__btn--secondary caption"
+                            onClick={(e) => e.stopPropagation()}
+                            aria-label={`View ${project.title} on GitHub`}
+                          >
+                            <span className="project-entry__btn-text">GITHUB</span>
+                            <span className="project-entry__btn-arrow" aria-hidden="true">↗</span>
+                          </a>
+                        </>
+                      ) : (
+                        <a
+                          href={primaryUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="project-entry__btn caption"
+                          onClick={(e) => e.stopPropagation()}
+                          aria-label={`View ${project.title} project repository in new tab`}
+                        >
+                          <span className="project-entry__btn-text">VIEW PROJECT</span>
+                          <span className="project-entry__btn-arrow" aria-hidden="true">↗</span>
+                        </a>
+                      )}
                     </div>
                   ) : (
                     <span className="project-entry__coming caption text-muted">
