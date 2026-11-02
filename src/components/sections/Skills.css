@@ -1,0 +1,115 @@
+/* Skills.css */
+.skills {
+  padding: clamp(5rem, 10vh, 10rem) 0;
+  padding-bottom: clamp(6rem, 12vh, 12rem);
+}
+
+.skills__header {
+  margin-bottom: clamp(3rem, 6vh, 5rem);
+  max-width: 480px;
+}
+
+.skills__intro {
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  color: var(--cream);
+  font-weight: 300;
+}
+
+/* Three chapters side by side */
+.skills__chapters {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  border-top: 1px solid rgba(240, 227, 216, 0.08);
+  padding-top: clamp(2rem, 5vh, 4rem);
+}
+
+.skills__group {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.skills__group-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.skills__chapter-title {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 0.9;
+  margin: 0.25rem 0;
+}
+
+.skills__chapter-desc {
+  color: var(--soft-grey);
+  line-height: 1.6;
+  max-width: 280px;
+  margin-top: 0.25rem;
+}
+
+/* Skill list */
+.skills__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  opacity: 1;
+  visibility: visible;
+}
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(240, 227, 216, 0.06);
+  transition: border-color 0.25s;
+}
+
+.skill-item:first-child {
+  border-top: 1px solid rgba(240, 227, 216, 0.06);
+}
+
+.skill-item:hover {
+  border-bottom-color: rgba(217, 140, 131, 0.25);
+}
+
+.skill-item__name {
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.skill-item__cat {
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  color: var(--soft-grey);
+  opacity: 0.7;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .skills__chapters {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .skills__chapter-desc {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .skills__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+
+  .skill-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.15rem;
+    padding: 0.6rem 0;
+  }
+}

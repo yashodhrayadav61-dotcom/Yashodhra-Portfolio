@@ -1,0 +1,259 @@
+/* ============================================================
+   COMPONENTS.CSS — Shared Component Styles
+   Yashodhra Yadav Portfolio
+   ============================================================ */
+
+/* ── Navbar ─────────────────────────────────────────────────── */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-nav);
+  padding: 1.75rem clamp(1.5rem, 5vw, 5rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  mix-blend-mode: normal;
+  transition: background 0.4s var(--ease-in-out);
+}
+
+.navbar--scrolled {
+  background: rgba(36, 21, 28, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(217, 140, 131, 0.1);
+}
+
+.navbar__wordmark {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cream);
+  opacity: 0.9;
+}
+
+.navbar__wordmark span {
+  color: var(--dusty-rose);
+}
+
+.navbar__nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.4rem, 2.2vw, 2.5rem);
+}
+
+.navbar__link {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--soft-grey);
+  position: relative;
+  transition: color 0.25s;
+}
+
+.navbar__link::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--dusty-rose);
+  transition: width 0.3s var(--ease-out-expo);
+}
+
+.navbar__link:hover {
+  color: var(--cream);
+}
+
+.navbar__link:hover::after {
+  width: 100%;
+}
+
+.navbar__menu-btn {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  width: 28px;
+  height: 20px;
+  justify-content: center;
+}
+
+.navbar__menu-btn span {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: var(--cream);
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+/* ── CTA Button ─────────────────────────────────────────────── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 2.25rem;
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--charcoal);
+  background: var(--cream);
+  border: 1px solid transparent;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.35s, background 0.35s, border-color 0.35s;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--dusty-rose);
+  transform: translateX(-101%);
+  transition: transform 0.45s var(--ease-out-expo);
+  z-index: 0;
+}
+
+.btn-primary:hover::before {
+  transform: translateX(0);
+}
+
+.btn-primary:hover {
+  color: var(--cream);
+}
+
+.btn-primary > * {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 2.25rem;
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cream);
+  border: 1px solid rgba(240, 227, 216, 0.3);
+  position: relative;
+  overflow: hidden;
+  transition: color 0.35s, border-color 0.35s;
+}
+
+.btn-outline:hover {
+  border-color: var(--dusty-rose);
+  color: var(--dusty-rose);
+}
+
+/* ── Section Base ───────────────────────────────────────────── */
+.section {
+  position: relative;
+  overflow: hidden;
+}
+
+.section--dark {
+  background-color: var(--burgundy);
+  color: var(--cream);
+}
+
+.section--deeper {
+  background-color: var(--plum);
+  color: var(--cream);
+}
+
+.section--light {
+  background-color: var(--cream);
+  color: var(--charcoal);
+}
+
+.section--charcoal {
+  background-color: var(--charcoal);
+  color: var(--cream);
+}
+
+/* ── Divider ────────────────────────────────────────────────── */
+.divider {
+  width: 40px;
+  height: 1px;
+  background: var(--dusty-rose);
+  margin: 1.5rem 0;
+}
+
+/* ── Scroll Indicator ───────────────────────────────────────── */
+.scroll-indicator {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: var(--z-foreground);
+}
+
+.scroll-indicator__line {
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(to bottom, var(--dusty-rose), transparent);
+  animation: scrollLine 2s ease-in-out infinite;
+}
+
+.scroll-indicator__label {
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--soft-grey);
+  writing-mode: vertical-rl;
+  margin-top: 0.5rem;
+}
+
+@keyframes scrollLine {
+  0%   { transform: scaleY(0); transform-origin: top; opacity: 0; }
+  30%  { opacity: 1; }
+  100% { transform: scaleY(1); transform-origin: top; opacity: 0; }
+}
+
+/* ── Mobile Navigation ──────────────────────────────────────── */
+@media (max-width: 768px) {
+  .navbar__nav {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: var(--plum);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+    z-index: var(--z-overlay);
+  }
+
+  .navbar__nav.is-open {
+    display: flex;
+  }
+
+  .navbar__link {
+    font-size: 1.5rem;
+    letter-spacing: 0.1em;
+  }
+
+  .navbar__menu-btn {
+    display: flex;
+    z-index: calc(var(--z-overlay) + 1);
+  }
+}

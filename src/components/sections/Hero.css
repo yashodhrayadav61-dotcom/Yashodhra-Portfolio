@@ -1,0 +1,662 @@
+/* ============================================================
+   Hero.css — Hero Section Styles (Editorial 3D Redesign)
+   Yashodhra Yadav Portfolio
+   ============================================================ */
+
+/* ── Container ──────────────────────────────────────────────── */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100dvh;
+  min-height: 720px;
+  background-color: #1a0b12;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Layer 1: Background & Atmosphere ───────────────────────── */
+.hero__bg {
+  position: absolute;
+  inset: -5%;
+  z-index: 0;
+  will-change: transform;
+  background: radial-gradient(
+    ellipse 130% 110% at 50% 35%,
+    #331421 0%,
+    #230d17 55%,
+    #14070e 100%
+  );
+}
+
+.hero__bg-grain {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 180px 180px;
+  opacity: 0.045;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+.hero__bg-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 85% 85% at 50% 50%,
+    transparent 25%,
+    rgba(14, 5, 9, 0.75) 100%
+  );
+  pointer-events: none;
+}
+
+/* Vertical architectural band */
+.hero__bg-vertical-stripe {
+  position: absolute;
+  top: 0;
+  left: 57%;
+  width: clamp(70px, 9vw, 130px);
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(86, 26, 44, 0.45) 0%,
+    rgba(53, 16, 28, 0.2) 60%,
+    transparent 100%
+  );
+  border-left: 1px solid rgba(217, 140, 131, 0.08);
+  border-right: 1px solid rgba(217, 140, 131, 0.08);
+  pointer-events: none;
+}
+
+/* Textured architectural disc behind center portrait */
+.hero__bg-circle {
+  position: absolute;
+  top: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: clamp(480px, 58vw, 840px);
+  height: clamp(480px, 58vw, 840px);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 50% 45%,
+    rgba(105, 32, 52, 0.55) 0%,
+    rgba(58, 17, 30, 0.6) 50%,
+    rgba(26, 9, 15, 0.2) 75%,
+    transparent 100%
+  );
+  border: 1px solid rgba(217, 140, 131, 0.1);
+  box-shadow: inset 0 0 100px rgba(15, 5, 10, 0.8), 0 0 80px rgba(60, 18, 30, 0.3);
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* Soft atmospheric rim light directly behind silhouette */
+.hero__bg-glow {
+  position: absolute;
+  bottom: 12%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: clamp(340px, 45vw, 650px);
+  height: clamp(340px, 45vw, 650px);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(217, 140, 131, 0.16) 0%,
+    rgba(201, 121, 118, 0.08) 45%,
+    transparent 70%
+  );
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ── Layer 2: Oversized Typography ──────────────────────────── */
+.hero__name-back {
+  position: absolute;
+  top: clamp(2.8rem, 6vh, 5rem);
+  left: 0;
+  right: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 clamp(1rem, 3vw, 3rem);
+  pointer-events: none;
+  will-change: transform;
+}
+
+.hero__name-word-1,
+.hero__name-word-2 {
+  display: block;
+  line-height: 0.82;
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  will-change: transform;
+  user-select: none;
+  background: linear-gradient(
+    180deg,
+    #f2aaa1 0%,
+    #dd877e 32%,
+    #ba5c67 68%,
+    #7d2639 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  opacity: 0.95;
+  filter: drop-shadow(0 18px 36px rgba(0, 0, 0, 0.65));
+}
+
+.hero__name-word-1 {
+  font-size: clamp(6.6rem, 16.5vw, 19rem);
+  letter-spacing: -0.015em;
+  width: 100%;
+}
+
+.hero__name-word-2 {
+  font-size: clamp(6.6rem, 16.5vw, 19rem);
+  letter-spacing: 0.15em;
+  padding-left: 0.15em;
+  margin-top: -0.3rem;
+  width: 100%;
+}
+
+/* ── Layer 2.5: Secondary Background Portrait ───────────────── */
+.hero__bg-portrait-wrap {
+  position: absolute;
+  right: clamp(1%, 3vw, 6%);
+  top: 3%;
+  width: clamp(420px, 46vw, 760px);
+  height: clamp(540px, 84vh, 920px);
+  pointer-events: none;
+  z-index: 2;
+  overflow: hidden;
+  will-change: transform;
+  mask-image: radial-gradient(
+    ellipse 85% 85% at 55% 45%,
+    black 30%,
+    rgba(0, 0, 0, 0.5) 60%,
+    transparent 92%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse 85% 85% at 55% 45%,
+    black 30%,
+    rgba(0, 0, 0, 0.5) 60%,
+    transparent 92%
+  );
+}
+
+.hero__bg-portrait-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  opacity: 0.44;
+  filter: contrast(0.96) brightness(0.92);
+  display: block;
+}
+
+.hero__bg-portrait-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 75% 75% at 55% 40%,
+    transparent 20%,
+    rgba(35, 13, 23, 0.45) 55%,
+    rgba(20, 7, 14, 0.85) 90%,
+    #14070e 100%
+  );
+  pointer-events: none;
+}
+
+/* ── Layer 3: Left Editorial Elements ───────────────────────── */
+.hero__editorial-left {
+  position: absolute;
+  left: clamp(1.5rem, 5vw, 5.5rem);
+  bottom: clamp(3rem, 7vh, 6.5rem);
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  max-width: 320px;
+}
+
+.hero__cursive-accent {
+  font-family: 'Caveat', 'Cormorant Garamond', cursive;
+  font-size: clamp(2rem, 3.2vw, 3.4rem);
+  line-height: 1.05;
+  color: #e2968d;
+  font-weight: 600;
+  transform: rotate(-5deg);
+  transform-origin: left bottom;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.7);
+}
+
+.hero__cursive-accent em {
+  display: block;
+  font-style: normal;
+  color: #f2aba2;
+}
+
+.hero__role-badge {
+  letter-spacing: 0.18em;
+  font-size: 0.68rem;
+  color: var(--soft-grey);
+  font-weight: 600;
+}
+
+/* Botanical Location Panel */
+.hero__panel--left {
+  margin-top: 1.25rem;
+  width: clamp(175px, 14vw, 235px);
+  height: clamp(85px, 10vh, 120px);
+  border: 1px solid rgba(217, 140, 131, 0.22);
+  position: relative;
+  overflow: hidden;
+  background: rgba(30, 10, 18, 0.7);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: flex-end;
+  padding: 0.85rem 1rem;
+}
+
+.hero__panel-texture--leaves {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(217, 140, 131, 0.15) 1px, transparent 1px),
+    linear-gradient(45deg, rgba(82, 26, 42, 0.3) 0%, rgba(20, 7, 14, 0.6) 100%);
+  background-size: 16px 16px, cover;
+  opacity: 0.6;
+}
+
+.hero__panel-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.hero__panel-label {
+  font-size: 0.6rem;
+  letter-spacing: 0.16em;
+  color: var(--soft-grey);
+}
+
+.hero__panel-val {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  color: var(--cream);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.hero__location-mobile {
+  display: none;
+}
+
+/* ── Section Navigation Index (Top-Right) ───────────────────── */
+.hero__editorial-nav {
+  position: absolute;
+  right: clamp(1.5rem, 4vw, 4rem);
+  top: clamp(6.5rem, 14vh, 9.5rem);
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.hero__nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  color: rgba(184, 173, 176, 0.65);
+  transition: color 0.3s, transform 0.3s;
+}
+
+.hero__nav-item:hover {
+  color: var(--dusty-rose);
+  transform: translateX(-4px);
+}
+
+.hero__nav-num {
+  font-weight: 700;
+  font-size: 0.65rem;
+  color: rgba(217, 140, 131, 0.5);
+}
+
+/* ── Layer 4: Main Foreground Portrait ──────────────────────── */
+.hero__portrait-wrap {
+  position: absolute;
+  z-index: 3;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: clamp(320px, 42vw, 600px);
+  will-change: transform;
+  pointer-events: none;
+}
+
+.hero__portrait-frame {
+  position: relative;
+  width: 100%;
+  height: clamp(520px, 83vh, 860px);
+  overflow: visible;
+  will-change: transform;
+}
+
+.hero__portrait-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+  display: block;
+  /* Seamless edge integration: contrast and soft environmental drop shadow */
+  filter: contrast(1.03) brightness(0.98) drop-shadow(0 20px 45px rgba(0, 0, 0, 0.65));
+}
+
+/* Fade portrait bottom edge seamlessly into background */
+.hero__portrait-frame::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 22%;
+  background: linear-gradient(
+    to top,
+    #14070e 0%,
+    rgba(22, 8, 15, 0.85) 45%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+/* ── Layer 5: Right Editorial Meta & CTA ─────────────────────── */
+.hero__editorial-right {
+  position: absolute;
+  right: clamp(1.5rem, 5vw, 5.5rem);
+  bottom: clamp(3rem, 7vh, 6.5rem);
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  gap: 1.15rem;
+  max-width: 320px;
+}
+
+.hero__edu-badge {
+  color: var(--dusty-rose);
+  letter-spacing: 0.16em;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.hero__description {
+  color: var(--soft-grey);
+  line-height: 1.6;
+  max-width: 270px;
+  font-size: 0.85rem;
+}
+
+/* Pill CTA Button */
+.hero__cta-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.85rem;
+  border: 1px solid var(--dusty-rose);
+  border-radius: 999px;
+  background: rgba(46, 17, 27, 0.45);
+  backdrop-filter: blur(6px);
+  color: var(--cream);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: background 0.35s, border-color 0.35s, transform 0.3s;
+}
+
+.hero__cta-pill:hover {
+  background: var(--dusty-rose);
+  border-color: var(--dusty-rose);
+  color: #14070e;
+  transform: translateY(-2px);
+}
+
+.hero__cta-pill svg {
+  transition: transform 0.3s;
+}
+
+.hero__cta-pill:hover svg {
+  transform: translateX(4px);
+}
+
+/* Social links row */
+.hero__socials {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 0.25rem;
+}
+
+.hero__social-icon {
+  color: rgba(217, 140, 131, 0.65);
+  transition: color 0.3s, transform 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero__social-icon:hover {
+  color: var(--cream);
+  transform: translateY(-2px);
+}
+
+/* Bottom Right Marble Texture Panel */
+.hero__panel--right {
+  width: 140px;
+  height: 90px;
+  border: 1px solid rgba(217, 140, 131, 0.22);
+  background: rgba(30, 10, 18, 0.75);
+  backdrop-filter: blur(8px);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.hero__panel-texture--marble {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(135deg, rgba(82, 26, 42, 0.4) 0%, rgba(20, 7, 14, 0.8) 100%),
+    radial-gradient(circle at 70% 30%, rgba(217, 140, 131, 0.2) 0%, transparent 60%);
+  opacity: 0.7;
+}
+
+.hero__panel-script {
+  position: relative;
+  z-index: 1;
+  font-family: 'Caveat', 'Cormorant Garamond', cursive;
+  font-size: 1.45rem;
+  line-height: 1.05;
+  text-align: center;
+  color: #f0a69d;
+  font-weight: 600;
+  transform: rotate(-6deg);
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .hero__name-word-1,
+  .hero__name-word-2 {
+    font-size: clamp(4.5rem, 13vw, 12rem);
+  }
+
+  .hero__portrait-wrap {
+    left: clamp(28%, 34vw, 40%);
+    width: clamp(280px, 42vw, 460px);
+  }
+
+  .hero__bg-portrait-wrap {
+    width: 48vw;
+    right: 2%;
+    opacity: 0.32;
+  }
+
+  .hero__editorial-nav {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 680px;
+    height: 100dvh;
+  }
+
+  .hero__bg-circle {
+    width: 90vw;
+    height: 90vw;
+    top: 15%;
+  }
+
+  .hero__bg-vertical-stripe {
+    display: none;
+  }
+
+  .hero__name-back {
+    top: clamp(4.5rem, 11vh, 6.8rem);
+    padding: 0 1rem;
+    align-items: center;
+  }
+
+  .hero__name-word-1,
+  .hero__name-word-2 {
+    font-size: clamp(3.4rem, 16vw, 5.4rem);
+    text-align: center;
+    width: 100%;
+    opacity: 0.92;
+  }
+
+  .hero__name-word-1 {
+    text-align: center;
+  }
+
+  .hero__name-word-2 {
+    text-align: center;
+    margin-top: -0.2rem;
+  }
+
+  .hero__bg-portrait-wrap {
+    width: 75vw;
+    right: -10%;
+    top: 16%;
+    opacity: 0.22;
+  }
+
+  /* Left Editorial on mobile */
+  .hero__editorial-left {
+    display: none;
+  }
+
+  /* Main portrait on mobile: centered, clear face */
+  .hero__portrait-wrap {
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: clamp(260px, 72vw, 340px);
+    bottom: 0;
+  }
+
+  .hero__portrait-frame {
+    height: clamp(360px, 54vh, 480px);
+  }
+
+  .hero__portrait-frame::after {
+    height: 42%;
+    background: linear-gradient(
+      to top,
+      #14070e 0%,
+      rgba(20, 7, 14, 0.9) 50%,
+      transparent 100%
+    );
+  }
+
+  /* Right Editorial / Meta on mobile */
+  .hero__editorial-right {
+    top: auto;
+    bottom: 1.5rem;
+    left: 1rem;
+    right: 1rem;
+    align-items: center;
+    text-align: center;
+    max-width: 100%;
+    gap: 0.55rem;
+    z-index: 5;
+  }
+
+  .hero__edu-badge {
+    font-size: 0.7rem;
+  }
+
+  .hero__location-mobile {
+    display: inline-flex;
+    align-items: center;
+    color: var(--coral);
+    font-size: 0.66rem;
+    letter-spacing: 0.12em;
+    font-weight: 600;
+  }
+
+  .hero__description {
+    font-size: 0.75rem;
+    line-height: 1.4;
+    max-width: 290px;
+    margin: 0 auto;
+  }
+
+  .hero__cta-pill {
+    padding: 0.6rem 1.4rem;
+    font-size: 0.68rem;
+  }
+
+  .hero__socials {
+    gap: 1rem;
+    margin-top: 0;
+  }
+
+  .hero__panel--right {
+    display: none;
+  }
+
+  .scroll-indicator {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__name-word-1,
+  .hero__name-word-2 {
+    font-size: clamp(2.8rem, 18vw, 4.8rem);
+  }
+
+  .hero__portrait-wrap {
+    width: 82vw;
+  }
+}

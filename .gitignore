@@ -1,0 +1,32 @@
+﻿node_modules/
+dist/
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
+.Dockerignore
+
+/ Root-level QA and design screenshots
+/*.png
+
+# Dependencies and build
+node_modules/
+dist/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Editor and system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

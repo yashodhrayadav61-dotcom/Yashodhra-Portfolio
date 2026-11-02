@@ -1,0 +1,340 @@
+/* ============================================================
+   ResumeViewer.css — Dedicated Editorial Resume Viewer
+   Yashodhra Yadav Portfolio
+   ============================================================ */
+
+.resume-viewer__backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(18, 7, 14, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(0.75rem, 2.5vw, 2rem);
+  animation: resumeFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.resume-viewer__window {
+  position: relative;
+  width: 100%;
+  max-width: 1040px;
+  height: min(92vh, 940px);
+  background: linear-gradient(155deg, #26131d 0%, #1a0912 100%);
+  border: 1px solid rgba(217, 140, 131, 0.25);
+  border-radius: 6px;
+  box-shadow: 0 35px 80px -15px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(217, 140, 131, 0.1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: resumeWindowIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ── Header ─────────────────────────────────────────────────── */
+.resume-viewer__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: clamp(1rem, 2vw, 1.35rem) clamp(1.25rem, 2.5vw, 2rem);
+  border-bottom: 1px solid rgba(217, 140, 131, 0.15);
+  background: rgba(36, 21, 28, 0.7);
+  backdrop-filter: blur(8px);
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+.resume-viewer__title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.resume-viewer__kicker {
+  color: var(--dusty-rose);
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.resume-viewer__title {
+  font-size: clamp(1.4rem, 2.4vw, 1.85rem);
+  color: var(--cream);
+  line-height: 0.95;
+  letter-spacing: 0.01em;
+}
+
+.resume-viewer__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* Open in Tab Button */
+.resume-viewer__tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 1.15rem;
+  border-radius: 999px;
+  background: rgba(217, 140, 131, 0.08);
+  border: 1px solid rgba(217, 140, 131, 0.28);
+  color: var(--cream);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.resume-viewer__tab-btn:hover {
+  background: rgba(217, 140, 131, 0.18);
+  border-color: var(--dusty-rose);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.resume-viewer__btn-arrow {
+  font-size: 0.8rem;
+  line-height: 1;
+}
+
+/* Prominent Download Button */
+.resume-viewer__download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.58rem 1.35rem;
+  border-radius: 999px;
+  background: var(--coral);
+  border: 1px solid var(--coral);
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(201, 121, 118, 0.3);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.resume-viewer__download-btn:hover {
+  background: #b86764;
+  border-color: #b86764;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(201, 121, 118, 0.45);
+}
+
+.resume-viewer__btn-icon {
+  font-size: 0.85rem;
+  line-height: 1;
+}
+
+/* Close Button */
+.resume-viewer__close-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(36, 21, 28, 0.8);
+  border: 1px solid rgba(217, 140, 131, 0.25);
+  color: var(--cream);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  flex-shrink: 0;
+  margin-left: 0.25rem;
+}
+
+.resume-viewer__close-btn:hover {
+  background: var(--coral);
+  color: #ffffff;
+  border-color: var(--coral);
+  transform: rotate(90deg);
+}
+
+/* ── Content / Body ─────────────────────────────────────────── */
+.resume-viewer__body {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: #170d13;
+}
+
+.resume-viewer__frame-wrap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.resume-viewer__iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: #2b2b2b;
+}
+
+/* ── Placeholder Card (if PDF not yet placed) ───────────────── */
+.resume-viewer__placeholder {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1.5rem, 4vw, 3rem);
+}
+
+.resume-viewer__placeholder-card {
+  max-width: 560px;
+  width: 100%;
+  padding: clamp(2rem, 4vw, 3rem);
+  background: rgba(36, 21, 28, 0.65);
+  border: 1px solid rgba(217, 140, 131, 0.2);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.15rem;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.resume-viewer__placeholder-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(217, 140, 131, 0.1);
+  border: 1px solid rgba(217, 140, 131, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--dusty-rose);
+}
+
+.resume-viewer__placeholder-kicker {
+  color: var(--dusty-rose);
+  font-size: 0.66rem;
+  letter-spacing: 0.18em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.resume-viewer__placeholder-title {
+  color: var(--cream);
+  font-size: clamp(1.75rem, 3vw, 2.4rem);
+  line-height: 0.95;
+}
+
+.resume-viewer__placeholder-desc {
+  max-width: 440px;
+  line-height: 1.65;
+  color: var(--soft-grey);
+  font-size: 0.92rem;
+}
+
+.resume-viewer__path-box {
+  width: 100%;
+  padding: 0.85rem 1.25rem;
+  background: rgba(20, 9, 15, 0.75);
+  border: 1px dashed rgba(217, 140, 131, 0.35);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.resume-viewer__path-label {
+  color: var(--dusty-rose);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.resume-viewer__path-code {
+  font-family: monospace;
+  font-size: 0.82rem;
+  color: var(--cream);
+  word-break: break-all;
+  user-select: all;
+}
+
+.resume-viewer__placeholder-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+/* ── Keyframes ──────────────────────────────────────────────── */
+@keyframes resumeFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes resumeWindowIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .resume-viewer__backdrop {
+    padding: 0;
+  }
+
+  .resume-viewer__window {
+    height: 100vh;
+    max-height: 100vh;
+    border-radius: 0;
+    border: none;
+  }
+
+  .resume-viewer__header {
+    flex-wrap: wrap;
+    padding: 1rem 1.25rem;
+  }
+
+  .resume-viewer__actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .resume-viewer__download-btn {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .resume-viewer__placeholder-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .resume-viewer__placeholder-actions > a {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .resume-viewer__backdrop,
+  .resume-viewer__window {
+    animation: none !important;
+  }
+}
+

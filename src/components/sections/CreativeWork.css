@@ -1,0 +1,291 @@
+/* ============================================================
+   CreativeWork.css — Redesigned "Beyond The Code" Creative Journal
+   Yashodhra Yadav Portfolio
+   Editorial Typography-Led Showcase (Zero Placeholders / No Fake Projects)
+   ============================================================ */
+
+.creative {
+  position: relative;
+  background-color: var(--plum);
+  color: var(--cream);
+  padding: clamp(5.5rem, 10vh, 9.5rem) 0;
+  overflow: hidden;
+}
+
+/* ── Ambient Architectural Atmosphere ───────────────────────── */
+.creative__ambient-glow {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: clamp(500px, 60vw, 900px);
+  height: clamp(500px, 60vw, 900px);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(201, 121, 118, 0.06) 0%,
+    rgba(53, 21, 31, 0.15) 45%,
+    transparent 75%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Section Header ─────────────────────────────────────────── */
+.creative__header {
+  position: relative;
+  z-index: 2;
+  margin-bottom: clamp(3.5rem, 6vh, 5rem);
+}
+
+.creative__meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.creative__label {
+  color: var(--coral);
+  letter-spacing: 0.18em;
+  font-weight: 700;
+  font-size: 0.72rem;
+}
+
+.creative__status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  background: rgba(201, 121, 118, 0.08);
+  border: 1px solid rgba(201, 121, 118, 0.25);
+  border-radius: 999px;
+  color: var(--dusty-rose);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+}
+
+.creative__status-spark {
+  color: var(--coral);
+  font-size: 0.75rem;
+  line-height: 1;
+}
+
+.creative__heading {
+  font-size: clamp(2.8rem, 6vw, 5.8rem);
+  line-height: 0.92;
+  letter-spacing: -0.015em;
+  margin-bottom: 1.75rem;
+}
+
+.creative__heading-serif {
+  font-size: clamp(2.8rem, 6vw, 5.8rem);
+  font-style: italic;
+  font-weight: 300;
+  color: var(--dusty-rose);
+  margin-left: 0.25rem;
+}
+
+.creative__lead-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: clamp(2rem, 4vw, 4.5rem);
+  align-items: start;
+  margin-bottom: clamp(2rem, 3.5vh, 3rem);
+}
+
+.creative__intro {
+  font-size: clamp(1.3rem, 2vw, 1.75rem);
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--cream);
+  border-left: 2px solid var(--coral);
+  padding-left: clamp(1.25rem, 2vw, 1.85rem);
+}
+
+.creative__context {
+  font-size: clamp(0.92rem, 1vw, 1rem);
+  line-height: 1.75;
+  color: var(--soft-grey);
+}
+
+.creative__divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    var(--coral) 0%,
+    rgba(201, 121, 118, 0.35) 45%,
+    rgba(240, 227, 216, 0.06) 100%
+  );
+}
+
+/* ── Creative Journal Ledger (6 Categories) ─────────────────── */
+.creative__journal {
+  position: relative;
+  z-index: 2;
+  margin-bottom: clamp(3.5rem, 6vh, 4.5rem);
+}
+
+.creative__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(1.75rem, 3vw, 2.75rem);
+}
+
+.creative__entry {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(2rem, 3vw, 2.75rem) clamp(1.75rem, 2.5vw, 2.5rem);
+  background: rgba(36, 21, 28, 0.6);
+  border: 1px solid rgba(201, 121, 118, 0.2);
+  border-radius: 4px;
+  position: relative;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease,
+              background-color 0.35s ease,
+              box-shadow 0.35s ease;
+}
+
+.creative__entry:hover {
+  transform: translateY(-4px);
+  background: rgba(45, 23, 33, 0.75);
+  border-color: rgba(201, 121, 118, 0.45);
+  box-shadow: 0 16px 36px -12px rgba(15, 6, 11, 0.5);
+}
+
+.creative__entry-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.creative__entry-num {
+  font-size: clamp(2.4rem, 3.4vw, 3.2rem);
+  line-height: 0.9;
+  color: var(--dusty-rose);
+  opacity: 0.85;
+}
+
+.creative__entry-tag {
+  color: var(--coral);
+  letter-spacing: 0.16em;
+  font-weight: 700;
+  font-size: 0.66rem;
+}
+
+.creative__entry-title {
+  font-size: clamp(2.2rem, 3.2vw, 3rem);
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.85rem;
+  transition: color 0.25s ease;
+}
+
+.creative__entry:hover .creative__entry-title {
+  color: var(--dusty-rose);
+}
+
+.creative__entry-rule {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(201, 121, 118, 0.3) 0%,
+    rgba(201, 121, 118, 0.08) 100%
+  );
+  margin-bottom: 1.15rem;
+}
+
+.creative__entry-desc {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: rgba(240, 227, 216, 0.85);
+  margin-bottom: 1.5rem;
+}
+
+.creative__entry-focus {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: auto;
+}
+
+.creative__focus-pill {
+  display: inline-block;
+  padding: 0.35rem 0.8rem;
+  background: rgba(201, 121, 118, 0.08);
+  border: 1px solid rgba(201, 121, 118, 0.2);
+  border-radius: 999px;
+  color: var(--cream);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.creative__entry:hover .creative__focus-pill {
+  border-color: rgba(201, 121, 118, 0.35);
+  background: rgba(201, 121, 118, 0.14);
+}
+
+/* ── Footnote ───────────────────────────────────────────────── */
+.creative__footer {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 1.5rem 1rem 0;
+  border-top: 1px solid rgba(201, 121, 118, 0.15);
+}
+
+.creative__footnote {
+  color: var(--soft-grey);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.creative__footnote-spark {
+  color: var(--coral);
+}
+
+/* ── Responsive Breakpoints ─────────────────────────────────── */
+@media (max-width: 960px) {
+  .creative__lead-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .creative__grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .creative {
+    padding: clamp(3.5rem, 7vh, 5.5rem) 0;
+  }
+
+  .creative__meta-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .creative__entry {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .creative__footnote {
+    font-size: 0.72rem;
+  }
+}

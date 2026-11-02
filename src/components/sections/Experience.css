@@ -1,0 +1,170 @@
+/* ============================================================
+   Experience.css — Along The Way Timeline
+   Yashodhra Yadav Portfolio
+   ============================================================ */
+
+.experience {
+  position: relative;
+  background-color: var(--plum);
+  color: var(--cream);
+  padding: clamp(5.5rem, 10vh, 10rem) 0;
+}
+
+/* ── Section Header ─────────────────────────────────────────── */
+.experience__header {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: clamp(3.5rem, 7vh, 5.5rem);
+}
+
+.experience__heading {
+  line-height: 0.88;
+  color: var(--cream);
+}
+
+.experience__subheading {
+  max-width: 580px;
+  color: var(--dusty-rose);
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  font-style: italic;
+  line-height: 1.5;
+  margin-top: 0.35rem;
+  opacity: 0.95;
+}
+
+/* ── Timeline Container ─────────────────────────────────────── */
+.experience__timeline {
+  display: flex;
+  flex-direction: column;
+  max-width: 760px;
+  position: relative;
+}
+
+/* ── Timeline Item ──────────────────────────────────────────── */
+.experience-item {
+  display: grid;
+  grid-template-columns: 2rem 1fr;
+  gap: 2rem;
+  position: relative;
+  transition: opacity 0.3s ease;
+}
+
+/* Timeline Marker (Dot + Connector) */
+.experience-item__marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 0.45rem;
+}
+
+.experience-item__dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--dusty-rose);
+  border: 2px solid var(--plum);
+  flex-shrink: 0;
+  box-shadow: 0 0 0 3px rgba(217, 140, 131, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.experience-item:hover .experience-item__dot {
+  transform: scale(1.25);
+  box-shadow: 0 0 0 5px rgba(217, 140, 131, 0.35);
+  background: var(--coral);
+}
+
+.experience-item__connector {
+  width: 1px;
+  flex: 1;
+  min-height: 3.5rem;
+  background: linear-gradient(
+    180deg,
+    rgba(217, 140, 131, 0.3) 0%,
+    rgba(217, 140, 131, 0.12) 100%
+  );
+  margin-top: 0.5rem;
+}
+
+/* Content */
+.experience-item__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding-bottom: clamp(2.25rem, 4.5vh, 3.75rem);
+}
+
+.experience-item__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.experience-item__type {
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+  color: var(--dusty-rose);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.experience-item__divider {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(217, 140, 131, 0.35);
+}
+
+.experience-item__year {
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  color: var(--soft-grey);
+  opacity: 0.75;
+}
+
+.experience-item__role {
+  font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+  line-height: 0.96;
+  letter-spacing: 0.01em;
+  color: var(--cream);
+  transition: color 0.25s ease;
+}
+
+.experience-item:hover .experience-item__role {
+  color: var(--dusty-rose);
+}
+
+.experience-item__org {
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--dusty-rose);
+  opacity: 0.9;
+}
+
+.experience-item__desc {
+  max-width: 600px;
+  line-height: 1.7;
+  color: rgba(240, 227, 216, 0.78);
+  font-size: 0.94rem;
+}
+
+/* ── Responsive Breakpoints ─────────────────────────────────── */
+@media (max-width: 600px) {
+  .experience-item {
+    grid-template-columns: 1.5rem 1fr;
+    gap: 1.25rem;
+  }
+}
+
+/* ── Prefers Reduced Motion ─────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .experience-item,
+  .experience-item__dot,
+  .experience-item__role {
+    transition: none !important;
+    transform: none !important;
+  }
+}

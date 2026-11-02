@@ -1,0 +1,259 @@
+/* ============================================================
+   WhyWorkWithMe.css — "Why Work With Me" Section
+   Yashodhra Yadav Portfolio
+   Editorial Asymmetric Ledger Layout (Attitude, Strengths & Potential)
+   ============================================================ */
+
+.why-me {
+  position: relative;
+  background-color: #2b111e;
+  background-image: linear-gradient(
+    180deg,
+    #24151C 0%,
+    #2d1220 40%,
+    #220d17 100%
+  );
+  color: var(--cream);
+  padding: clamp(5.5rem, 10vh, 9.5rem) 0;
+  overflow: hidden;
+}
+
+/* ── Ambient Architectural Atmosphere ───────────────────────── */
+.why-me__ambient-glow {
+  position: absolute;
+  top: 25%;
+  right: -10%;
+  width: clamp(500px, 50vw, 800px);
+  height: clamp(500px, 50vw, 800px);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(201, 121, 118, 0.08) 0%,
+    rgba(53, 21, 31, 0.15) 50%,
+    transparent 75%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Split Grid Layout ──────────────────────────────────────── */
+.why-me__split {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: clamp(3rem, 6vw, 6.5rem);
+  align-items: start;
+}
+
+/* ── Left Column (Sticky Sidebar) ───────────────────────────── */
+.why-me__sidebar {
+  position: sticky;
+  top: clamp(5.5rem, 11vh, 7.5rem);
+  display: flex;
+  flex-direction: column;
+}
+
+.why-me__kicker {
+  color: var(--coral);
+  letter-spacing: 0.18em;
+  font-weight: 700;
+  font-size: 0.72rem;
+  margin-bottom: 1.25rem;
+}
+
+.why-me__heading {
+  font-size: clamp(2.8rem, 5.5vw, 5.2rem);
+  line-height: 0.92;
+  letter-spacing: -0.015em;
+  margin-bottom: 1.5rem;
+}
+
+.why-me__heading-serif {
+  font-size: clamp(2.8rem, 5.5vw, 5.2rem);
+  font-style: italic;
+  font-weight: 300;
+  color: var(--dusty-rose);
+  margin-left: 0.25rem;
+}
+
+.why-me__divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    var(--coral) 0%,
+    rgba(201, 121, 118, 0.35) 50%,
+    transparent 100%
+  );
+  margin-bottom: 1.75rem;
+}
+
+.why-me__subheading {
+  font-size: clamp(1.2rem, 1.8vw, 1.55rem);
+  line-height: 1.45;
+  color: var(--cream);
+  margin-bottom: 1.25rem;
+}
+
+.why-me__context {
+  font-size: clamp(0.92rem, 1vw, 1rem);
+  line-height: 1.75;
+  color: var(--soft-grey);
+  margin-bottom: 2.25rem;
+}
+
+.why-me__cta-wrap {
+  margin-top: auto;
+}
+
+.why-me__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9rem 1.85rem;
+  background: transparent;
+  color: var(--cream);
+  border: 1px solid var(--coral);
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.why-me__cta:hover {
+  background: var(--coral);
+  color: #fff;
+  border-color: var(--coral);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(201, 121, 118, 0.35);
+}
+
+.why-me__cta svg {
+  transition: transform 0.25s ease;
+}
+
+.why-me__cta:hover svg {
+  transform: translateX(4px);
+}
+
+/* ── Right Column (5 Numbered Core Qualities) ───────────────── */
+.why-me__content {
+  position: relative;
+}
+
+.why-me__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.25rem, 2vw, 1.75rem);
+}
+
+.why-me__item {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1.75rem, 2.5vw, 2.25rem) clamp(1.5rem, 2.2vw, 2.25rem);
+  background: rgba(36, 21, 28, 0.6);
+  border: 1px solid rgba(201, 121, 118, 0.2);
+  border-radius: 4px;
+  position: relative;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease,
+              background-color 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+.why-me__item:hover {
+  transform: translateY(-3px);
+  background: rgba(45, 23, 33, 0.8);
+  border-color: rgba(201, 121, 118, 0.48);
+  box-shadow: 0 16px 36px -12px rgba(15, 6, 11, 0.5);
+}
+
+.why-me__item-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 0.4rem;
+}
+
+.why-me__item-num {
+  font-size: clamp(2.2rem, 3.2vw, 3rem);
+  line-height: 0.9;
+  color: var(--dusty-rose);
+  opacity: 0.85;
+}
+
+.why-me__item-tag {
+  color: var(--coral);
+  letter-spacing: 0.16em;
+  font-weight: 700;
+  font-size: 0.65rem;
+}
+
+.why-me__item-title {
+  font-size: clamp(1.8rem, 2.6vw, 2.4rem);
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.75rem;
+  transition: color 0.25s ease;
+}
+
+.why-me__item:hover .why-me__item-title {
+  color: var(--dusty-rose);
+}
+
+.why-me__item-rule {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(201, 121, 118, 0.3) 0%,
+    rgba(201, 121, 118, 0.08) 100%
+  );
+  margin-bottom: 1rem;
+}
+
+.why-me__item-desc {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: rgba(240, 227, 216, 0.88);
+}
+
+/* ── Responsive Breakpoints ─────────────────────────────────── */
+@media (max-width: 1024px) {
+  .why-me__split {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+
+  .why-me__sidebar {
+    position: static;
+  }
+
+  .why-me__cta {
+    display: inline-flex;
+    width: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .why-me {
+    padding: clamp(3.5rem, 7vh, 5.5rem) 0;
+  }
+
+  .why-me__item {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .why-me__cta {
+    width: 100%;
+    justify-content: center;
+  }
+}
+

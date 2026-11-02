@@ -1,0 +1,338 @@
+/* ============================================================
+   Projects.css — Selected Projects Contextual "VIEW PROJECT ↗" Action
+   Yashodhra Yadav Portfolio
+   ============================================================ */
+
+.projects {
+  position: relative;
+  background-color: var(--cream);
+  color: var(--charcoal);
+  padding: clamp(5.5rem, 10vh, 9.5rem) 0;
+}
+
+/* ── Section Header ─────────────────────────────────────────── */
+.projects__header {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: clamp(3rem, 6vh, 4.5rem);
+}
+
+.projects__meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.projects__heading {
+  line-height: 0.88;
+  color: var(--charcoal);
+}
+
+/* ── Project List ───────────────────────────────────────────── */
+.projects__list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(25, 23, 25, 0.12);
+}
+
+/* ── Project Entry ──────────────────────────────────────────── */
+.project-entry {
+  position: relative;
+  display: grid;
+  grid-template-columns: 3.5rem 1fr auto;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  align-items: start;
+  padding: clamp(2rem, 4vh, 3.25rem) clamp(0.75rem, 1.5vw, 1.25rem);
+  border-bottom: 1px solid rgba(25, 23, 25, 0.12);
+  text-decoration: none;
+  color: inherit;
+  transition: background-color 0.28s ease, border-color 0.28s ease;
+  border-radius: 4px;
+  outline: none;
+}
+
+.project-entry--link {
+  cursor: pointer;
+}
+
+.project-entry--link:hover,
+.project-entry--active {
+  background-color: rgba(255, 255, 255, 0.55);
+  border-bottom-color: rgba(201, 121, 118, 0.35);
+}
+
+.project-entry--link:focus-visible {
+  outline: 2px solid var(--coral);
+  outline-offset: 3px;
+  background-color: rgba(255, 255, 255, 0.55);
+}
+
+.project-entry--disabled {
+  cursor: default;
+  opacity: 0.88;
+}
+
+/* Left accent hairline on hover/active */
+.project-entry__line {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--coral);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 2px 0 0 2px;
+}
+
+.project-entry--link:hover .project-entry__line,
+.project-entry--link:focus-visible .project-entry__line,
+.project-entry--active .project-entry__line {
+  transform: scaleY(1);
+}
+
+.project-entry--featured {
+  /* subtly styled or aligned */
+}
+
+/* Index */
+.project-entry__index {
+  color: var(--soft-grey);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  padding-top: 0.5rem;
+  font-weight: 600;
+}
+
+/* Content */
+.project-entry__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.project-entry__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.project-entry__title {
+  font-size: clamp(1.8rem, 3.2vw, 2.85rem);
+  color: var(--charcoal);
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  transition: color 0.25s ease;
+}
+
+.project-entry--link:hover .project-entry__title,
+.project-entry--link:focus-visible .project-entry__title,
+.project-entry--active .project-entry__title {
+  color: var(--coral);
+}
+
+.project-entry__subtitle {
+  color: var(--soft-grey);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+}
+
+.project-entry__desc {
+  max-width: 580px;
+  line-height: 1.7;
+  font-size: 0.94rem;
+}
+
+/* Technology Tags */
+.project-entry__tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.project-entry__tech-tag {
+  padding: 0.3rem 0.75rem;
+  border: 1px solid rgba(25, 23, 25, 0.15);
+  border-radius: 2px;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  color: var(--charcoal);
+  opacity: 0.75;
+  transition: border-color 0.25s ease, opacity 0.25s ease;
+}
+
+.project-entry--link:hover .project-entry__tech-tag,
+.project-entry--active .project-entry__tech-tag {
+  border-color: rgba(201, 121, 118, 0.6);
+  opacity: 1;
+}
+
+/* ── Action Column (Status, Year, Contextual Button) ─────────── */
+.project-entry__action {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-top: 0.5rem;
+  min-width: 145px;
+  min-height: 100%;
+}
+
+.project-entry__meta-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+}
+
+.project-entry__status {
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  color: var(--soft-grey);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.project-entry__status--done {
+  color: var(--coral);
+}
+
+.project-entry__year {
+  font-size: 0.7rem;
+  color: var(--soft-grey);
+}
+
+.project-entry__cta-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: auto;
+}
+
+/* ── Contextual "VIEW PROJECT ↗" Floating Button ────────────── */
+.project-entry__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.52rem 1.15rem;
+  border-radius: 999px;
+  background: var(--coral);
+  color: #ffffff;
+  border: 1px solid var(--coral);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(201, 121, 118, 0.28);
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+  transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.22s ease,
+              border-color 0.22s ease,
+              box-shadow 0.22s ease;
+}
+
+/* Smooth reveal on hover, focus, or touch active */
+.project-entry--link:hover .project-entry__btn,
+.project-entry--link:focus-within .project-entry__btn,
+.project-entry--active .project-entry__btn {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Hover state on the button itself */
+.project-entry__btn:hover {
+  background: #b86764;
+  border-color: #b86764;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(201, 121, 118, 0.4);
+}
+
+.project-entry__btn-arrow {
+  font-size: 0.82rem;
+  line-height: 1;
+  transition: transform 0.22s ease;
+}
+
+.project-entry__btn:hover .project-entry__btn-arrow {
+  transform: translate(2px, -2px);
+}
+
+.project-entry__coming {
+  display: inline-block;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  color: var(--soft-grey);
+  font-style: italic;
+  opacity: 0.75;
+  margin-top: auto;
+}
+
+/* ── Responsive Breakpoints ─────────────────────────────────── */
+@media (max-width: 768px) {
+  .project-entry {
+    grid-template-columns: 2.5rem 1fr;
+    grid-template-rows: auto auto;
+    gap: 1.25rem 1.5rem;
+    padding: 2rem 0.5rem;
+  }
+
+  .project-entry__action {
+    grid-column: 2;
+    grid-row: 2;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-width: 0;
+    padding-top: 0.25rem;
+  }
+
+  .project-entry__meta-info {
+    flex-direction: row;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .project-entry__btn {
+    min-height: 38px;
+    padding: 0.5rem 1.1rem;
+    font-size: 0.66rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-entry {
+    grid-template-columns: 1fr;
+  }
+
+  .project-entry__index {
+    display: none;
+  }
+
+  .project-entry__action {
+    grid-column: 1;
+  }
+}
+
+/* ── Prefers Reduced Motion ─────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .project-entry,
+  .project-entry__line,
+  .project-entry__title,
+  .project-entry__btn,
+  .project-entry__btn-arrow {
+    transition: none !important;
+    transform: none !important;
+  }
+}
